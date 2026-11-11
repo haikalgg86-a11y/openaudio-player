@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Matches all USB Audio Class (Class 0x01) peripherals (UAC 1.0 & UAC 2.0 DACs)
+-->
+<resources>
+    <usb-device class="1" />
+</resources>

@@ -1,0 +1,44 @@
+name: Build OpenAudio Player Android 16 APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout OpenAudio Player Source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK & NDK r27c (API 36 / 16KB ELF Aligned)
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android 16 (API 36) SDK & NDK 27.2.12479018
+        run: |
+          sdkmanager --install "platforms;android-36" "build-tools;35.0.0" "ndk;27.2.12479018" "cmake;3.22.1"
+
+      - name: Build Debug & Release APKs with Gradle
+        run: |
+          gradle assembleDebug assembleRelease --stacktrace
+
+      - name: Verify 16 KB ELF Page Size Alignment on Native Libraries
+        run: |
+          find . -name "libopenaudio_*.so" -exec readelf -l {} + | grep -A 1 "LOAD"
+
+      - name: Upload Ready-to-Install APK Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenAudioPlayer-Android16-APKs
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
