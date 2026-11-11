@@ -224,7 +224,7 @@ openaudio::usb::DirectUsbIsochronousEngine gDirectUsbEngine;
 } // namespace
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeGetSystemPageSize(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeGetSystemPageSize(
     JNIEnv* /* env */,
     jobject /* thiz */
 ) {
@@ -233,7 +233,7 @@ Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeGetSystemPageSize(
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeQueryUsbDevFsCapabilities(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeQueryUsbDevFsCapabilities(
     JNIEnv* /* env */,
     jobject /* thiz */,
     jint fd
@@ -248,7 +248,7 @@ Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeQueryUsbDevFsCapabiliti
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeGetBoundKernelDriver(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeGetBoundKernelDriver(
     JNIEnv* env,
     jobject /* thiz */,
     jint fd,
@@ -271,7 +271,7 @@ Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeGetBoundKernelDriver(
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeDisconnectClaimInterface(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeDisconnectClaimInterface(
     JNIEnv* /* env */,
     jobject /* thiz */,
     jint fd,
@@ -290,7 +290,7 @@ Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeDisconnectClaimInterfac
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeConfigureFeedbackParser(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeConfigureFeedbackParser(
     JNIEnv* /* env */,
     jobject /* thiz */,
     jint sampleRateHz,
@@ -306,7 +306,7 @@ Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeConfigureFeedbackParser
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_usb_NativeUsbDevFsBridge_nativeConfigureDirectUsbStream(
+Java_org_openaudio_ndk_usb_NativeUsbDevFsBridge_nativeConfigureDirectUsbStream(
     JNIEnv* /* env */,
     jobject /* thiz */,
     jint fd,

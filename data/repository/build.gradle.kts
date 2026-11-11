@@ -34,6 +34,7 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:preferences"))
     implementation(project(":data:local"))
+    implementation(project(":player:library"))
     implementation(project(":usb:detection"))
     implementation(project(":usb:transfer"))
     implementation(project(":audio:engine"))

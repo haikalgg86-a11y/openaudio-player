@@ -16,7 +16,7 @@ import org.openaudio.core.common.OpenAudioResult
 import org.openaudio.core.model.DacDeviceInfo
 import org.openaudio.core.model.EndpointSyncType
 import org.openaudio.core.model.UacVersion
-import org.openaudio.native.usb.NativeUsbDevFsBridge
+import org.openaudio.ndk.usb.NativeUsbDevFsBridge
 import org.openaudio.usb.descriptors.UsbRawDescriptorParser
 
 /**

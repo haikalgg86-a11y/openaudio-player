@@ -153,7 +153,7 @@ void BiquadPeakingFilter64::processStereoS32Le(
 } // namespace openaudio::audio
 
 extern "C" JNIEXPORT jint JNICALL
-Java_org_openaudio_native_audio_NativeAudioBufferBridge_nativeGetRuntimePageSize(
+Java_org_openaudio_ndk_audio_NativeAudioBufferBridge_nativeGetRuntimePageSize(
     JNIEnv* /* env */,
     jobject /* thiz */
 ) {

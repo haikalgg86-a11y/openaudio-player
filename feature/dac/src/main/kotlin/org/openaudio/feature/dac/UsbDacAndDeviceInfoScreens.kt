@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -29,6 +30,7 @@ import org.openaudio.usb.transfer.UsbFeasibilityAuditEntry
 fun UsbDacManagerScreen(
     connectedDac: DacDeviceInfo?,
     telemetry: AudioTelemetrySnapshot,
+    onScanUsbDac: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -46,6 +48,15 @@ fun UsbDacManagerScreen(
         }
 
         item {
+            Button(
+                onClick = onScanUsbDac,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Scan & Request USB DAC Permission")
+            }
+        }
+
+        item {
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
@@ -58,12 +69,12 @@ fun UsbDacManagerScreen(
                             color = MaterialTheme.colorScheme.error
                         )
                         Text(
-                            text = "Connect a USB Audio Class 1.0 or 2.0 dongle/DAC via USB-C OTG. OpenAudio Player never fabricates fake DAC states when no physical hardware is connected.",
+                            text = "Connect a USB Audio Class 1.0 or 2.0 dongle/DAC via USB-C OTG, then tap 'Scan & Request USB DAC Permission' above.",
                             style = MaterialTheme.typography.bodySmall
                         )
                     } else {
                         Text(
-                            text = "Connection Status: Connected (Permission: ${if (connectedDac.permissionGranted) "Granted" else "Pending"})",
+                            text = "Connection Status: Connected (Permission: ${if (connectedDac.permissionGranted) "Granted" else "Pending — Tap Scan Again After Allowing"})",
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.primary
                         )
@@ -71,6 +82,7 @@ fun UsbDacManagerScreen(
                         Text("Model: ${connectedDac.safeProduct}", fontFamily = FontFamily.Monospace)
                         Text("USB VID:PID: ${connectedDac.formattedVidPid}", fontFamily = FontFamily.Monospace)
                         Text("UAC Version: ${connectedDac.uacVersion.label}", fontFamily = FontFamily.Monospace)
+                        Text("Bound Kernel Driver: ${connectedDac.kernelDriverBound ?: "None"}", fontFamily = FontFamily.Monospace)
                         Text("Supported Bit Depths: ${connectedDac.supportedBitDepths.joinToString(", ")}-bit", fontFamily = FontFamily.Monospace)
                         Text("Supported Sample Rates: ${connectedDac.supportedSampleRatesHz.joinToString(", ")} Hz", fontFamily = FontFamily.Monospace)
                         Text("Active Output Mode: ${telemetry.activePath.displayName}", fontFamily = FontFamily.Monospace)
@@ -136,7 +148,7 @@ fun DeviceInformationScreen(
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.primary
                     )
-                    Text(text = "Mechanism: ${entry.mechanism}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodySmall)
+                    Text(text = "Mechanism: ${entry.mechanism}", fontFamily = FontFamily.Monospace, style = MaterialTheme.colorScheme.onSurface)
                     Text(text = entry.runtimeNotes, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }

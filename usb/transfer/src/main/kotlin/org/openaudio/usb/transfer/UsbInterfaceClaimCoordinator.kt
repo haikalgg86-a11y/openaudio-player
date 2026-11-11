@@ -5,7 +5,7 @@
 package org.openaudio.usb.transfer
 
 import org.openaudio.core.model.FeasibilityCategory
-import org.openaudio.native.usb.NativeUsbDevFsBridge
+import org.openaudio.ndk.usb.NativeUsbDevFsBridge
 
 data class UsbFeasibilityAuditEntry(
     val capabilityName: String,

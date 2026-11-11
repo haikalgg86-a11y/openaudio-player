@@ -19,7 +19,7 @@ uint64_t computePcmFrameHash64(const uint8_t* pcmBytes, size_t length, uint64_t 
 } // namespace openaudio::decoder
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_org_openaudio_native_decoder_NativeDecoderBridge_nativeComputePcmHash64(
+Java_org_openaudio_ndk_decoder_NativeDecoderBridge_nativeComputePcmHash64(
     JNIEnv* env,
     jobject /* thiz */,
     jbyteArray pcmData,
@@ -39,7 +39,7 @@ Java_org_openaudio_native_decoder_NativeDecoderBridge_nativeComputePcmHash64(
 }
 
 extern "C" JNIEXPORT jintArray JNICALL
-Java_org_openaudio_native_decoder_NativeDecoderBridge_nativeProbeHeader(
+Java_org_openaudio_ndk_decoder_NativeDecoderBridge_nativeProbeHeader(
     JNIEnv* env,
     jobject /* thiz */,
     jbyteArray headerBytes,

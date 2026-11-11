@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "org.openaudio.native.decoder"
+    namespace = "org.openaudio.ndk.decoder"
     compileSdk = libs.versions.compileSdk.get().toInt()
     ndkVersion = libs.versions.ndkVersion.get()
 
