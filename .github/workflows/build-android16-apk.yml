@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Android SDK & NDK r27c (API 36 / 16KB ELF Aligned)
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Install Android 16 (API 36) SDK & NDK 27.2.12479018
         run: |
