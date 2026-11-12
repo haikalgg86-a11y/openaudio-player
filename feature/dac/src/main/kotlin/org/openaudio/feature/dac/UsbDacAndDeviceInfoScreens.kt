@@ -148,7 +148,7 @@ fun DeviceInformationScreen(
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.primary
                     )
-                    Text(text = "Mechanism: ${entry.mechanism}", fontFamily = FontFamily.Monospace, style = MaterialTheme.colorScheme.onSurface)
+                    Text(text = "Mechanism: ${entry.mechanism}", fontFamily = FontFamily.Monospace, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurface)
                     Text(text = entry.runtimeNotes, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }

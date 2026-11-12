@@ -184,8 +184,7 @@ fun MusicLibraryScreen(
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = "• Ketuk tombol biru 'Scan Lagu di HP' di atas lalu pilih 'Izinkan / Allow' agar aplikasi langsung mengumpulkan semua musik di HP Anda.
-• Atau ketuk 'Pilih Folder' jika Anda ingin memilih sendiri folder tempat Anda menyimpan file FLAC, WAV, MP3, atau DSD.",
+                        text = "Ketuk tombol Scan Lagu di HP di atas lalu pilih Izinkan agar aplikasi mengumpulkan semua musik Anda, atau ketuk Pilih Folder untuk memilih folder FLAC/WAV/DSD secara manual.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
